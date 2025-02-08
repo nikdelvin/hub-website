@@ -1,0 +1,21 @@
+---
+interface Props {
+    color?: 'default' | 'primary' | 'secondary' | 'success' | 'error'
+    type?: 'solid' | 'bordered'
+    size?: 'small' | 'medium' | 'large'
+    shadow?: boolean
+    items?: string[]
+}
+
+const { color = 'default', type = 'solid', size = 'medium', shadow, items = [] } = Astro.props
+---
+
+<div
+    data-color={color}
+    data-type={type}
+    data-size={size}
+    data-shadow={shadow}
+    class="button-group group"
+>
+    {items.map((item) => <button class="button-group-item">{item}</button>)}
+</div>

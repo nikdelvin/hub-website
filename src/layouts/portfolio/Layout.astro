@@ -1,0 +1,159 @@
+---
+import '../../styles/taily.css'
+interface Props {
+    title: string
+    description: string
+    keywords: string
+    url: string
+    imageUrl: string
+    brand: string
+    color: string
+}
+
+const { title, description, keywords, url, imageUrl, brand, color } = Astro.props
+---
+
+<!doctype html>
+<html
+    lang="en"
+    class="bg-zinc-950"
+>
+    <head>
+        <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NDYRS0B1HH"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || []
+            gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+                functionality_storage: 'denied',
+                personalization_storage: 'denied',
+                security_storage: 'denied'
+            })
+            window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+            const gtagScript = document.getElementsByTagName('script')[0]
+            const gtmScript = document.createElement('script')
+            gtmScript.async = true
+            gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KCDNCQ9G'
+            gtagScript.parentNode.insertBefore(gtmScript, gtagScript)
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
+            gtag('config', 'G-NDYRS0B1HH')
+            gtag('consent', 'update', {
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+                analytics_storage: 'granted',
+                functionality_storage: 'granted',
+                personalization_storage: 'granted',
+                security_storage: 'granted'
+            })
+        </script>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="robots"
+            content="index, follow"
+        />
+        <meta
+            name="author"
+            content="Nikita Stadnik (the@nikdelv.in)"
+        />
+        <meta
+            name="description"
+            content={description}
+        />
+        <meta
+            name="keywords"
+            content={keywords}
+        />
+        <meta
+            name="theme-color"
+            content="#000000"
+        />
+        <meta
+            property="og:title"
+            content={title}
+        />
+        <meta
+            property="og:description"
+            content={description}
+        />
+        <meta
+            property="og:url"
+            content={url}
+        />
+        <meta
+            property="og:image"
+            content={imageUrl}
+        />
+        <meta
+            property="og:type"
+            content="website"
+        />
+        <meta
+            property="og:site_name"
+            content={brand}
+        />
+        <meta
+            name="twitter:card"
+            content="summary_large_image"
+        />
+        <meta
+            name="twitter:title"
+            content={title}
+        />
+        <meta
+            name="twitter:description"
+            content={description}
+        />
+        <meta
+            name="twitter:image"
+            content={imageUrl}
+        />
+        <meta
+            name="twitter:site"
+            content="@nikdelvin"
+        />
+        <link
+            rel="canonical"
+            href={url}
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href={`/favicons/portfolio/favicon-${color}.svg?v=${Date.now()}`}
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href={`/favicons/portfolio/favicon-${color}.svg?v=${Date.now()}`}
+        />
+        <meta
+            name="generator"
+            content={Astro.generator}
+        />
+        <title>{title}</title>
+    </head>
+    <body>
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-KCDNCQ9G"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"
+            ></iframe></noscript
+        >
+        <slot />
+    </body>
+</html>

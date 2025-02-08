@@ -1,0 +1,79 @@
+---
+import '../styles/main.css'
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial20.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/icons/check3.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/icons/chat-alt.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/icons/chart-square-bar.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial12.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial11.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial5.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial6.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial4.svg"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/gradients/radial3.svg"
+        />
+        <link
+            rel="stylesheet"
+            href={`https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;display=swap`}
+        />
+        <link
+            rel="stylesheet"
+            href={`https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap`}
+        />
+    </head>
+    <body class="bg-black">
+        <slot />
+        <script
+            async
+            src="scripts/sliders.js"
+        ></script>
+    </body>
+</html>

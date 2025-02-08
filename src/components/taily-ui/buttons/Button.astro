@@ -1,0 +1,22 @@
+---
+interface Props {
+    color?: 'default' | 'primary' | 'secondary' | 'success' | 'error'
+    type?: 'solid' | 'bordered'
+    size?: 'small' | 'medium' | 'large'
+    shadow?: boolean
+    icon?: boolean
+}
+
+const { color = 'default', type = 'solid', size = 'medium', shadow, icon } = Astro.props
+---
+
+<button
+    data-color={color}
+    data-type={type}
+    data-size={size}
+    data-shadow={shadow}
+    data-icon={icon}
+    class="button"
+>
+    <slot />
+</button>

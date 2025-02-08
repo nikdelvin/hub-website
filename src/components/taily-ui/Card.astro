@@ -1,0 +1,17 @@
+---
+interface Props {
+    color?: 'default' | 'primary' | 'secondary' | 'success' | 'error'
+    shadow?: boolean
+    addClass?: string
+}
+
+const { color = 'default', shadow, addClass = '' } = Astro.props
+---
+
+<div
+    data-color={color}
+    data-shadow={shadow}
+    class={`card ${addClass}`}
+>
+    <slot />
+</div>

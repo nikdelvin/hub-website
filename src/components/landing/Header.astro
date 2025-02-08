@@ -1,0 +1,174 @@
+<section class="sticky top-0 z-[1000] overflow-hidden">
+    <div class="flex items-center justify-between bg-gray-900 p-4">
+        <div class="w-auto">
+            <div class="flex flex-wrap items-center">
+                <div class="mr-12 w-auto">
+                    <a
+                        class="bg-gradient-cyan bg-clip-text font-heading text-2xl font-semibold text-transparent sm:text-4xl"
+                        href="#"
+                        >Hub by Nik Delvin
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="w-auto">
+            <div class="flex flex-wrap items-center">
+                <div class="hidden w-auto lg:block">
+                    <ul class="mr-12 flex items-center">
+                        <li class="mr-12 font-heading text-lg text-white hover:text-gray-200">
+                            <a href="#">Products</a>
+                        </li>
+                        <li class="mr-12 font-heading text-lg text-white hover:text-gray-200">
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li class="mr-12 font-heading text-lg text-white hover:text-gray-200"><a href="#">FAQ</a></li>
+                        <li class="mr-12 font-heading text-lg text-white hover:text-gray-200">
+                            <a href="#">Contacts</a>
+                        </li>
+                        <li class="font-heading text-lg text-white hover:text-gray-200">
+                            <a href="/sign-in">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden w-auto lg:block">
+                    <a
+                        href="/sign-up"
+                        class="group relative block w-full overflow-hidden rounded-10 bg-gradient-cyan p-0.5 font-heading text-lg font-medium text-white md:w-auto"
+                    >
+                        <div
+                            class="absolute left-0 top-0 h-full w-full -translate-y-full transform bg-gradient-cyan transition duration-500 ease-in-out group-hover:-translate-y-0"
+                        >
+                        </div>
+                        <div class="rounded-lg bg-gray-900 px-4 py-2">
+                            <p class="relative z-10">Start for free</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="h-12 w-auto lg:hidden">
+                    <button id="burger-menu-open">
+                        <svg
+                            class="text-gray-800"
+                            width={48}
+                            height={48}
+                            viewBox="0 0 56 56"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <rect
+                                width={56}
+                                height={56}
+                                rx={28}
+                                fill="currentColor"
+                            ></rect>
+                            <path
+                                d="M37 32H19M37 24H19"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        id="burger-menu"
+        class="fixed bottom-0 left-0 top-0 z-50 hidden w-[75%] sm:max-w-xs"
+    >
+        <div class="fixed inset-0 bg-gray-800 opacity-80"></div>
+        <nav class="relative z-10 h-full bg-gray-900 p-6">
+            <div class="flex h-auto flex-wrap justify-start">
+                <div class="mb-4 w-full">
+                    <div class="-m-2 flex items-center justify-between">
+                        <div class="w-auto p-2">
+                            <a
+                                class="inline-block bg-gradient-cyan bg-clip-text font-heading text-xl font-semibold text-transparent sm:text-2xl"
+                                href="#"
+                                >Hub by Nik Delvin</a
+                            >
+                        </div>
+                        <div class="flex w-auto items-center p-2">
+                            <button id="burger-menu-close">
+                                <svg
+                                    width={24}
+                                    height={24}
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M6 18L18 6M6 6L18 18"
+                                        stroke="#ffffff"
+                                        stroke-width={2}
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex w-full flex-col justify-center py-8">
+                    <ul>
+                        <li class="mb-12">
+                            <a
+                                class="font-heading text-lg font-medium text-white hover:text-gray-200"
+                                href="#"
+                                >Products</a
+                            >
+                        </li>
+                        <li class="mb-12">
+                            <a
+                                class="font-heading text-lg font-medium text-white hover:text-gray-200"
+                                href="#"
+                                >Pricing</a
+                            >
+                        </li>
+                        <li class="mb-12">
+                            <a
+                                class="font-heading text-lg font-medium text-white hover:text-gray-200"
+                                href="#"
+                                >FAQ</a
+                            >
+                        </li>
+                        <li class="mb-12">
+                            <a
+                                class="font-heading text-lg font-medium text-white hover:text-gray-200"
+                                href="#"
+                                >Contacts</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="font-heading text-lg font-medium text-white hover:text-gray-200"
+                                href="/sign-in"
+                                >Sign In</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-4 flex w-full flex-col justify-end">
+                    <div class="flex flex-wrap">
+                        <div class="w-auto">
+                            <a
+                                href="/sign-up"
+                                class="group relative block w-full overflow-hidden rounded-10 bg-gradient-cyan p-0.5 font-heading text-lg font-medium text-white"
+                            >
+                                <div
+                                    class="absolute left-0 top-0 h-full w-full -translate-y-full transform bg-gradient-cyan transition duration-500 ease-in-out group-hover:-translate-y-0"
+                                >
+                                </div>
+                                <div class="rounded-lg bg-gray-900 px-4 py-2 pr-8">
+                                    <p class="relative z-10">Start for free</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="h-[1px] w-full bg-gray-800"></div>
+</section>

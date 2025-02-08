@@ -1,0 +1,34 @@
+{
+    "name": "nikdelvin",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "npm run prettier && npm run eslint && astro dev",
+        "build": "npm run prettier && npm run eslint && astro check && astro build",
+        "preview": "npm run build && astro preview",
+        "eslint": "eslint --ext .ts,.tsx,.astro src",
+        "prettier": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.9.4",
+        "@astrojs/tailwind": "^6.0.0",
+        "astro": "^5.2.5",
+        "autoprefixer": "^10.4.19",
+        "tailwindcss": "^3.4.3",
+        "taily-ui": "^1.2.21",
+        "typescript": "^5.4.4"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^7.5.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-astro": "^0.31.4",
+        "prettier": "^3.2.5",
+        "prettier-plugin-astro": "^0.13.0",
+        "prettier-plugin-tailwindcss": "^0.5.12"
+    },
+    "browserslist": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+    ]
+}

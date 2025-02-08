@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/taily-ui/Layout.astro'
+import * as tailyUI from 'taily-ui'
+
+const month = new Date().getMonth()
+const day = new Date().getDate()
+const year = new Date().getFullYear()
+const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+function getDate(date: Date) {
+    return [date.getDate().toString(), monthNames[date.getMonth()], date.getFullYear().toString()]
+}
+export async function getStaticPaths() {
+    return [undefined, 'default', 'primary', 'secondary', 'success', 'warning', 'error', 'ghost'].map((theme) => ({
+        params: { theme }
+    }))
+}
+const { theme } = Astro.params
+const colorTheme =
+    (theme as 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'ghost') ?? 'secondary'
+---
+
+<Layout
+    title="Welcome to Taily UI"
+    description="Beautiful, fast, and modern UI Library 100% built and animated with pure Tailwind CSS"
+    keywords="web de, website, logo design, graphic design, website design, website builder, website templates, web development, graphic designer, web page, brochure design, web designer, webdesign, web developer, ecommerce website, create a website, logo designer, free website templates, web design company, website creator, design logo, website designer, responsive web design, create website, criar site"
+    url="https://tailyui.by.nikdelv.in/"
+    imageUrl="https://nikdelv.in/projects/tailyui.jpg"
+    brand="Taily UI"
+    color={colorTheme}
+>
+    <main class="select-none overflow-hidden">
+        <fragment
+            set:html={tailyUI.OpenSourcePromo({
+                logo: 'M17.6953 7.2433c-2.1016-2.5224-4.6763-3.0481-7.7242-1.5771 2.0494-.1049 3.4417.6047 4.1772 2.1285.4199.8695.3263 1.8182.2225 2.87C14.2026 12.3767 14.0072 14.3572 15.9604 16.7015c2.1016 2.5224 4.6763 3.0481 7.7242 1.5771-2.0494.1049-3.4417-.6047-4.1772-2.1285-.4199-.8695-.3263-1.8182-.2225-2.87C19.4535 11.5688 19.6491 9.5884 17.6953 7.2433zM8.0793 7.2424c-2.1016-2.5224-4.6763-3.0481-7.7242-1.5771 2.0494-.1049 3.4417.6047 4.1772 2.1285.4199.8695.3263 1.8182.2225 2.87-.1682 1.7119-.3637 3.6924 1.5894 6.0368 2.1016 2.5224 4.6763 3.0481 7.7242 1.5771-2.0494.1049-3.4417-.6047-4.1772-2.1285-.4199-.8695-.3263-1.8182-.2225-2.87C9.8376 11.5679 10.0332 9.5874 8.0793 7.2424z',
+                title: 'Taily UI',
+                color: colorTheme,
+                text: [
+                    { type: 'default', value: 'Build' },
+                    { type: 'primary', value: 'beautiful' },
+                    {
+                        type: 'default',
+                        value: 'websites with compact, easy-to-use, fully animated components on top of'
+                    },
+                    { type: 'secondary', value: 'Tailwind CSS' }
+                ],
+                description: 'Beautiful, fast, and modern UI Library 100% built and animated with pure Tailwind CSS.',
+                button: {
+                    title: 'Read docs',
+                    link: '/docs/components/buttons'
+                },
+                github: 'https://github.com/nikdelvin/taily-ui'
+            })}
+        />
+        <fragment
+            id="kpi"
+            set:html={tailyUI.KPICards({
+                title: 'Build UI everywhere',
+                color: colorTheme,
+                cards: [
+                    { title: 'Pure', description1: 'Tailwind CSS', description2: 'components' },
+                    { title: 'Easy', description1: 'to use site', description2: 'layouts' },
+                    { title: 'Fast', description1: 'optimized', description2: 'builds' },
+                    { title: 'Free', description1: 'open-source', description2: 'license' }
+                ],
+                button: {
+                    title: 'Make new landing',
+                    link: '#features'
+                }
+            })}
+        />
+        <fragment
+            id="features"
+            set:html={tailyUI.FeatureCards({
+                title: 'Useful components',
+                color: colorTheme,
+                reverse: false,
+                featureTitle: 'New classes',
+                featureDescription: [
+                    { type: 'default', value: 'To make it' },
+                    { type: 'primary', value: 'simpler' },
+                    { type: 'default', value: 'to design new' },
+                    { type: 'primary', value: 'web apps' }
+                ],
+                featureOptions: [
+                    'Contains 45 pure Tailwind CSS components for multi-purpose use on your website or dashboard',
+                    'Cross-framework library created for universal implementation on React, Next.JS, Astro.JS, Svelte, Angular.JS, Vue.JS, Nuxt.JS, and vanilla Javascript',
+                    'Output HTML/CSS compression to optimize builds & performance boost for complex design systems'
+                ],
+                button: {
+                    title: 'Build everywhere',
+                    link: '#features_2'
+                }
+            })}
+        />
+        <fragment
+            id="features_2"
+            set:html={tailyUI.FeatureCards({
+                title: 'Pre-designed layouts',
+                color: colorTheme,
+                reverse: true,
+                featureTitle: 'Build easily',
+                featureDescription: [
+                    { type: 'default', value: 'Like if' },
+                    { type: 'secondary', value: 'UI' },
+                    { type: 'default', value: 'constructed with' },
+                    { type: 'secondary', value: 'Lego' },
+                    { type: 'default', value: 'bricks' }
+                ],
+                featureOptions: [
+                    'Contains 25 easy-to-use prepared layouts for creative landing pages, websites, and dashboards',
+                    'Functional approach in generating HTML & CSS for layouts to make them work on every framework and able to integrate with CMS and other site builders',
+                    'Lifetime use free open-source MIT license to make your commercial ideas shine as fast as possible'
+                ],
+                button: {
+                    title: 'Launch an idea',
+                    link: '#stages'
+                }
+            })}
+        />
+        <fragment
+            id="stages"
+            set:html={tailyUI.Jobs({
+                title: 'Project roadmap',
+                color: colorTheme,
+                jobs: [
+                    {
+                        from: getDate(new Date()),
+                        to: getDate(new Date(Date.now() + 3 * 30 * 24 * 60 * 60 * 1000)),
+                        title: 'Phase I: Website components',
+                        description: [
+                            { type: 'default', value: '10 new' },
+                            { type: 'primary', value: 'components' },
+                            { type: 'default', value: 'designed for' },
+                            { type: 'primary', value: 'websites' }
+                        ],
+                        role: [
+                            'Form inputs, selectors, date pickers & validation, media carousel & preview, steppers, timeline, burger menu, header & footer',
+                            '7 amazing color themes, easy component properties control with data attributes, build-in animations, flexible & adaptive design',
+                            'Pure Tailwind CSS integration allows you to customize components, create new color themes, design tokens, animations & even more'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (3 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (6 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase II: Website layouts',
+                        description: [
+                            { type: 'default', value: '10 new' },
+                            { type: 'primary', value: 'layouts' },
+                            { type: 'default', value: 'to build' },
+                            { type: 'primary', value: 'websites' },
+                            { type: 'default', value: 'faster' }
+                        ],
+                        role: [
+                            'Hero, call-to-action, feedback form, image gallery, testimonials, blog/news, pricing table, social media & map integration sections',
+                            'Layouts are easily configurable with 7 pre-designed color themes, content-rich sections with markdown support, and media links',
+                            'The functional approach in layout rendering allows you to use it in any JavaScript framework right after connecting Tailwind CSS'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (6 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (9 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase III: Dashboard components',
+                        description: [
+                            { type: 'default', value: 'Over 30 new' },
+                            { type: 'primary', value: 'components' },
+                            { type: 'default', value: 'for a dashboard' }
+                        ],
+                        role: [
+                            'Alerts, avatars, badges, cards, charts, forms, inputs, loaders, modals, pagination, popovers, sliders, tabs, tables, toasts, tooltips',
+                            'Interactive plugins: overlay, clipboard, drop zone, form validation, form repeater, data table, file tree, kanban board, quick search',
+                            'Set of 100+ high-quality and pixel-perfect font icons available in duotone, outline, and solid styles for all your dashboard elements'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (9 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (12 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase IV: Dashboard layouts',
+                        description: [
+                            { type: 'default', value: '15 new interface' },
+                            { type: 'primary', value: 'layouts' },
+                            { type: 'default', value: 'of a' },
+                            { type: 'primary', value: 'dashboard' }
+                        ],
+                        role: [
+                            'Account, authentication, calendar, chat, customers portal, file manager, inbox, invoice manager, user management, user profile',
+                            'Multi-purpose, eCommerce, logistics, POS & marketing dashboard templates with metrics, charts, tables, and other functional plugins',
+                            'Layout builder with configurable options like light & dark themes for sidebar and header, 5 different types of toolbars and asides'
+                        ]
+                    }
+                ]
+            })}
+        />
+        <fragment
+            id="footer"
+            set:html={tailyUI.Footer({
+                color: colorTheme,
+                blocks: [
+                    {
+                        title: 'About creator',
+                        text: [
+                            { type: 'default', value: `Hi, I'm` },
+                            { type: 'primary', value: 'Nikita Stadnik' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: `I'm a passionate and ambitious` },
+                            { type: 'primary', value: 'Fullstack Web Developer' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'My love is' },
+                            { type: 'primary', value: 'developing' },
+                            { type: 'default', value: 'cross-platform applications from zero to production' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: `I've mastered` },
+                            { type: 'primary', value: 'T-shaped skills' },
+                            { type: 'default', value: `that help me work solo on my own big projects` }
+                        ]
+                    },
+                    {
+                        title: 'Contacts',
+                        text: [
+                            { type: 'default', value: 'Email:' },
+                            {
+                                type: 'primary',
+                                value: 'the@nikdelv.in',
+                                link: 'mailto:the@nikdelv.in',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Github:' },
+                            {
+                                type: 'primary',
+                                value: '@nikdelvin',
+                                link: 'https://github.com/nikdelvin',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'DEV Blog:' },
+                            { type: 'primary', value: '@nikdelvin', link: 'https://dev.to/nikdelvin', newPage: true },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Behance:' },
+                            {
+                                type: 'primary',
+                                value: '@nikdelvin',
+                                link: 'https://www.behance.net/nikdelvin',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Telegram:' },
+                            { type: 'primary', value: '@nikdelvin', link: 'https://t.me/nikdelvin', newPage: true },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'LinkedIn:' },
+                            {
+                                type: 'primary',
+                                value: '@nikdelvin',
+                                link: 'https://www.linkedin.com/in/nikdelvin',
+                                newPage: true
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Projects',
+                        text: [
+                            { type: 'primary', value: 'TailyUI', link: 'https://tailyui.by.nikdelv.in', newPage: true },
+                            {
+                                type: 'default',
+                                value: '<br/>Modern UI Library 100% built and animated with pure Tailwind CSS'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Brodly', link: 'https://brodly.by.nikdelv.in', newPage: true },
+                            {
+                                type: 'default',
+                                value: '<br/>High-secure and fully anonymous live-streaming platform for everyone'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Neuroly', link: 'https://neuroly.by.nikdelv.in', newPage: true },
+                            { type: 'default', value: '<br/>STT and voice synthesis AI chatbot' }
+                        ]
+                    },
+                    {
+                        title: 'Coming soon',
+                        text: [
+                            { type: 'primary', value: 'Scripty', link: 'https://scripty.by.nikdelv.in', newPage: true },
+                            {
+                                type: 'default',
+                                value: '<br/>Practice-oriented educational platform to learn JavaScript'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Feelicy', link: 'https://feelicy.by.nikdelv.in', newPage: true },
+                            {
+                                type: 'default',
+                                value: '<br/>Mind mapping and goal planning service in game format of Garden Sim'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            {
+                                type: 'primary',
+                                value: 'Scientry',
+                                link: 'https://scientry.by.nikdelv.in',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<br/>Data management & visualization tool' }
+                        ]
+                    },
+                    {
+                        title: 'Experience',
+                        text: [
+                            {
+                                type: 'primary',
+                                value: `17.05.22 - ${String(day).padStart(2, '0')}.${String(month + 1).padStart(2, '0')}.${String(year).slice(2)}:`
+                            },
+                            { type: 'default', value: 'BSO Real Estate Management.' },
+                            { type: 'primary', value: 'Role:' },
+                            { type: 'default', value: 'Team leader / DevOps / Backend developer.' },
+                            { type: 'primary', value: 'Product:' },
+                            { type: 'default', value: 'Cross-platform mobile app, internal ERP system.' },
+                            { type: 'primary', value: 'Info', link: 'https://bso.ae', newPage: true },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: '19.01.21 - 11.05.22:' },
+                            { type: 'default', value: 'WhatCRM by LifeTelecom.' },
+                            { type: 'primary', value: 'Role:' },
+                            { type: 'default', value: 'Frontend Next.JS / React web developer.' },
+                            { type: 'primary', value: 'Product:' },
+                            { type: 'default', value: 'Custom WhatsApp Web client as an integration for CRMs.' },
+                            { type: 'primary', value: 'Info', link: 'https://whatcrm.net/en', newPage: true },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: '25.05.19 - 13.01.21:' },
+                            { type: 'default', value: 'Unistroy Construction.' },
+                            { type: 'primary', value: 'Role:' },
+                            { type: 'default', value: 'Fullstack React / Python web developer.' },
+                            { type: 'primary', value: 'Product:' },
+                            { type: 'default', value: 'Big-data service for analyzing counterparties affiliations.' },
+                            {
+                                type: 'primary',
+                                value: 'Info',
+                                link: 'https://github.com/nikdelvin/affiliation-checker',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Total time on development "battlefield":' },
+                            {
+                                type: 'primary',
+                                value: `${Math.floor((Date.now() - Date.parse('25 May 2019 00:00:00 GMT')) / (1000 * 60 * 60 * 24) / 365)}`
+                            },
+                            { type: 'default', value: 'years and' },
+                            {
+                                type: 'primary',
+                                value: `${Math.floor(((Date.now() - Date.parse('25 May 2019 00:00:00 GMT')) / (1000 * 60 * 60 * 24)) % 365)}`
+                            },
+                            { type: 'default', value: 'days' }
+                        ]
+                    },
+                    {
+                        title: 'Skills',
+                        text: [
+                            { type: 'primary', value: 'Languages:' },
+                            { type: 'default', value: 'JavaScript, TypeScript, HTML 5, CSS 3, Python, Java, Swift' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Frameworks:' },
+                            {
+                                type: 'default',
+                                value: 'React, Solid, Astro, Next, Svelte, Vue, Nuxt, Nest, Electron, Flask'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Libraries:' },
+                            {
+                                type: 'default',
+                                value: 'Bootstrap, Tailwind, Formik, Redux, Recoil, GSAP, Framer, Three.JS'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'And more other deeply learned' },
+                            { type: 'primary', value: 'tools', link: '#skills' }
+                        ]
+                    },
+                    {
+                        title: 'Articles',
+                        text: [
+                            { type: 'primary', value: '04.08.20:' },
+                            {
+                                type: 'default',
+                                value: 'Modified genetic algorithm to solve 3d packaging problem.'
+                            },
+                            {
+                                type: 'primary',
+                                value: 'Read',
+                                link: 'https://ceur-ws.org/Vol-2667/paper21.pdf',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: '24.12.21:' },
+                            {
+                                type: 'default',
+                                value: 'Auto-optimization system for product manufacturing workflow.'
+                            },
+                            {
+                                type: 'primary',
+                                value: 'Read',
+                                link: 'https://ieeexplore.ieee.org/document/9649154',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: '03.11.23:' },
+                            { type: 'default', value: 'Comprehensive simulation model of city transport network.' },
+                            {
+                                type: 'primary',
+                                value: 'Read',
+                                link: 'https://ieeexplore.ieee.org/document/10303830',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Researches open-source repo:' },
+                            {
+                                type: 'primary',
+                                value: 'GitHub',
+                                link: 'https://github.com/nikdelvin/research-projects',
+                                newPage: true
+                            }
+                        ]
+                    }
+                ]
+            })}
+        />
+    </main>
+</Layout>
+<style is:global>
+    :root::-webkit-scrollbar {
+        display: none !important;
+    }
+    :root::-webkit-scrollbar-thumb {
+        background-color: transparent !important;
+    }
+    :root::-webkit-scrollbar-track {
+        background-color: transparent !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar {
+        display: none !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar-thumb {
+        background-color: transparent !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar-track {
+        background-color: transparent !important;
+    }
+</style>
