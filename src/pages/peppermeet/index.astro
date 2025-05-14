@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/ProjectLayout.astro'
+import Main from '../../components/peppermeet/Main.tsx'
+---
+
+<Layout
+    title="Welcome to Peppermeet"
+    description="Meditation, focus, mind mapping, and goal planning in the game format of Garden Simulator."
+    keywords="cyberpunk 2077, evangelion, chatbot, artificial intelligence and data science, ai data science"
+    url="https://hub.by.nikdelv.in/peppermeet"
+    imageUrl="/projects/feelicy.jpg"
+    iconUrl="/peppermeet/favicon.svg"
+    brand="Peppermeet"
+>
+    <Main client:load />
+</Layout>
+<script
+    is:inline
+    src="/peppermeet/simplepeer.min.js"
+></script>

@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/ProjectLayout.astro'
+import ProjectFooter from '../../components/shared/ProjectFooter.astro'
+import * as tailyUI from 'taily-ui'
+
+const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+function getDate(date: Date) {
+    return [date.getDate().toString(), monthNames[date.getMonth()], date.getFullYear().toString()]
+}
+export async function getStaticPaths() {
+    return [undefined, 'default', 'primary', 'secondary', 'success', 'warning', 'error', 'ghost'].map((theme) => ({
+        params: { theme }
+    }))
+}
+const { theme } = Astro.params
+const colorTheme = (theme as 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'ghost') ?? 'error'
+---
+
+<Layout
+    title="Welcome to Neuroly"
+    description="AI chatbot based on 56B tokens LLM, powered by speech-to-text and voice synthesis."
+    keywords="data scientist, master's in data science, online master's in data science, online master's degree in data science, artificial intelligence and data science, ai data science, artificial intelligence data science, ai data scientist, data science degree, data science programs, python for data science, python and data science, statistics for data science, r for data science, certified data scientist, statistics and data science, m sc in data science, online data science degree, data science bachelor degree, data science and analytics, data scientist degree online, junior data scientist, bachelor of data science, online data science programs, data science analytics"
+    url="https://hub.by.nikdelv.in/neuroly"
+    imageUrl="/projects/neuroly.jpg"
+    brand="Neuroly"
+    color={colorTheme}
+    parent="/neuroly"
+>
+    <main class="select-none overflow-hidden">
+        <fragment
+            set:html={tailyUI.OpenSourcePromo({
+                logo: 'M5.658 5.1088a.971.971-37 00-.3166.7231L5.2985 23.0011l3.2337-2.4367.0305-12.0397 4.9934 3.4245.0057-2.352-6.6784-4.5788a.983.983-37 00-1.2258.0898zM15.4779 3.3599l-.0305 12.0397-4.9934-3.4245-.0057 2.352 6.6784 4.5788a.987.987-37 001.5422-.8115L18.7112.921z',
+                title: 'Neuroly',
+                color: colorTheme,
+                text: [
+                    { type: 'default', value: 'Generate' },
+                    { type: 'primary', value: 'beautiful' },
+                    {
+                        type: 'default',
+                        value: 'ideas with smart, personalized assistant fully trained for creative'
+                    },
+                    { type: 'secondary', value: 'conversations' }
+                ],
+                description: 'AI chatbot based on 56B tokens LLM, powered by voice recognition and voice synthesis.',
+                button: {
+                    title: 'Say hello',
+                    link: '#kpi'
+                },
+                github: 'https://github.com/nikdelvin/neuroly',
+                parent: '/neuroly'
+            })}
+        />
+        <fragment
+            id="kpi"
+            set:html={tailyUI.KPICards({
+                title: 'Tuning parameters',
+                color: colorTheme,
+                cards: [
+                    { title: '56B', description1: 'tokens in', description2: 'model' },
+                    { title: '0.7M', description1: 'train-hours of', description2: 'speech' },
+                    { title: '57', description1: 'languages to', description2: 'listen' },
+                    { title: '16', description1: 'languages to', description2: 'speak' }
+                ],
+                button: {
+                    title: 'Make it better',
+                    link: '#features'
+                }
+            })}
+        />
+        <fragment
+            id="features"
+            set:html={tailyUI.FeatureCards({
+                title: 'Chatbot who listens',
+                color: colorTheme,
+                reverse: false,
+                featureTitle: 'Recognize',
+                featureDescription: [
+                    { type: 'default', value: 'The way' },
+                    { type: 'primary', value: 'you' },
+                    { type: 'default', value: 'ask all exciting' },
+                    { type: 'primary', value: 'questions' }
+                ],
+                featureOptions: [
+                    '56 billion tokens and 700,000 training hours AI model resulting in cutting-edge speech recognition',
+                    'Contextual understanding that goes beyond simple keywords, allowing for more natural, engaging conversations, and personalized interaction',
+                    'Professional fluency in 57 diverse languages with a wide range from English to Mandarin Chinese'
+                ],
+                button: {
+                    title: 'Ask your question',
+                    link: '#features_2'
+                }
+            })}
+        />
+        <fragment
+            id="features_2"
+            set:html={tailyUI.FeatureCards({
+                title: 'Chatbot who speaks',
+                color: colorTheme,
+                reverse: true,
+                featureTitle: 'Answer',
+                featureDescription: [
+                    { type: 'default', value: 'In a way' },
+                    { type: 'secondary', value: 'you' },
+                    { type: 'default', value: 'can easily listen &' },
+                    { type: 'secondary', value: 'understand' }
+                ],
+                featureOptions: [
+                    'More than 20 unique multilingual AI voices trained with help of experienced voice actors to sound real',
+                    'Adaptive tone speaking style that adjusts to context of conversation, mirroring your emotions and energy levels, keeping conversation flowing naturally',
+                    "Customize scenario script of the model persona's backstory to get more immersive conversations"
+                ],
+                button: {
+                    title: 'Get your answer',
+                    link: '#stages'
+                }
+            })}
+        />
+        <fragment
+            id="stages"
+            set:html={tailyUI.Jobs({
+                title: 'Project roadmap',
+                color: colorTheme,
+                jobs: [
+                    {
+                        from: getDate(new Date()),
+                        to: getDate(new Date(Date.now() + 3 * 30 * 24 * 60 * 60 * 1000)),
+                        title: 'Phase I: Multilingual foundation',
+                        description: [
+                            { type: 'default', value: 'Core for' },
+                            { type: 'primary', value: 'speech' },
+                            { type: 'default', value: 'recognition &' },
+                            { type: 'primary', value: 'NLP' },
+                            { type: 'default', value: 'engine' }
+                        ],
+                        role: [
+                            'Diverse language dataset of speech and text in 57 languages with representation of various accents, dialects, and speaking styles',
+                            'Transformer-based architecture for speech recognition and NLP tasks, capable of handling multilingual input & large-scale training',
+                            'Evaluation metrics, hyperparameter tuning, and data augmentation to achieve professional fluency & accuracy across all 57 languages'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (3 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (6 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase II: Personality customization',
+                        description: [
+                            { type: 'default', value: 'Emotions,' },
+                            { type: 'primary', value: 'adaptive' },
+                            { type: 'default', value: 'tone &' },
+                            { type: 'primary', value: 'speaking' },
+                            { type: 'default', value: 'style' }
+                        ],
+                        role: [
+                            'Sentiment analysis capabilities integration allows model to detect and interpret emotions expressed in text or speech accurately',
+                            'A wide library of unique AI voices prepared by experienced voice actors representing diverse language backgrounds & acting styles',
+                            'Tool for defining and customizing AI personalities allows users to select or create personalities that align with their preferences'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (6 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (9 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase III: Contextual awareness',
+                        description: [
+                            { type: 'default', value: 'Topics' },
+                            { type: 'primary', value: 'perception' },
+                            { type: 'default', value: '& proactive' },
+                            { type: 'primary', value: 'suggestions' }
+                        ],
+                        role: [
+                            'Coreference resolution capabilities integration to accurately track entities across multiple sentences, ensuring reference accuracy',
+                            'Algorithm to track evolution of topics throughout the conversation, recognizing shifts in focus and adapting its responses accordingly',
+                            "System to retrieve and present personalized content like articles, recommendations, and data based on user's interests and context"
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (9 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (12 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase IV: Advanced interaction',
+                        description: [
+                            { type: 'default', value: 'Seamless' },
+                            { type: 'primary', value: 'language,' },
+                            { type: 'default', value: 'text format' },
+                            { type: 'primary', value: 'switching' }
+                        ],
+                        role: [
+                            "Cross-lingual transfer learning to enhance the AI model's ability to understand and respond appropriately in multilingual conversations",
+                            'Normalization of text input to handle variations in spelling, punctuation, and grammar and allowing for consistent processing',
+                            'Switching engine for seamless transitions between languages and text formats in real-time, without interrupting flow of conversation'
+                        ]
+                    }
+                ]
+            })}
+        />
+        <ProjectFooter theme={colorTheme} />
+    </main>
+</Layout>

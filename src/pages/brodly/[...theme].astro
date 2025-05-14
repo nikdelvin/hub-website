@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/ProjectLayout.astro'
+import ProjectFooter from '../../components/shared/ProjectFooter.astro'
+import * as tailyUI from 'taily-ui'
+
+const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+function getDate(date: Date) {
+    return [date.getDate().toString(), monthNames[date.getMonth()], date.getFullYear().toString()]
+}
+export async function getStaticPaths() {
+    return [undefined, 'default', 'primary', 'secondary', 'success', 'warning', 'error', 'ghost'].map((theme) => ({
+        params: { theme }
+    }))
+}
+const { theme } = Astro.params
+const colorTheme =
+    (theme as 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'ghost') ?? 'warning'
+---
+
+<Layout
+    title="Welcome to Brodly"
+    description="Stylish, modern, high-secure and fully anonymous live streaming platform."
+    keywords="nfl+, jiocinema, disney+, livetv, fubo tv, streaming, prime video com mytv, free movies website, paramount+, nfl plus, roku tv, free movies online, live stream, youtube tv cost, stream labs, espn plus, prime video mytv, bigolive, hulu sports, directv stream, espn+, amazon prime movies, nba stream, directv streaming, hulu live tv"
+    url="https://hub.by.nikdelv.in/brodly"
+    imageUrl="/projects/brodly.jpg"
+    brand="Brodly"
+    color={colorTheme}
+    parent="/brodly"
+>
+    <main class="select-none overflow-hidden">
+        <fragment
+            set:html={tailyUI.OpenSourcePromo({
+                logo: 'M12 0c-9.68 0-12 2.32-12 12s2.32 12 12 12S24 21.68 24 12 21.68 0 12 0Zm-2.492 4.84 8.555 3.762C19.502 9.238 20.284 10.46 20.284 12c0 1.54-.781 2.762-2.223 3.398l-8.554 3.762c-.418.172-.953.32-1.418.32-2.125 0-3.617-1.492-3.617-3.617 0-.726.183-1.3.37-1.883.192-.597.387-1.203.387-1.98 0-.77-.195-1.39-.386-1.996-.188-.59-.371-1.168-.371-1.867 0-2.125 1.492-3.617 3.617-3.617.465 0 1 .148 1.418.32ZM16.57 12l-8.406-3.715c.512 1.102.758 2.371.758 3.715 0 1.297-.246 2.613-.758 3.664Z',
+                title: 'Brodly',
+                color: colorTheme,
+                text: [
+                    { type: 'default', value: 'Share' },
+                    { type: 'primary', value: 'beautiful' },
+                    {
+                        type: 'default',
+                        value: 'moments of your life with everyone with customizable real-time'
+                    },
+                    { type: 'secondary', value: 'broadcasts' }
+                ],
+                description: 'Stylish, modern, high-secure, and fully anonymous live streaming platform.',
+                button: {
+                    title: 'Start broadcast',
+                    link: '#kpi'
+                },
+                github: 'https://github.com/nikdelvin/brodly',
+                parent: '/brodly'
+            })}
+        />
+        <fragment
+            id="kpi"
+            set:html={tailyUI.KPICards({
+                title: 'Capture moments with',
+                color: colorTheme,
+                cards: [
+                    { title: '30', description1: 'color theme', description2: 'overlays' },
+                    { title: '1-4', description1: 'streamers in', description2: 'broadcast' },
+                    { title: '100', description1: 'percent safe', description2: 'meetings' },
+                    { title: 'Chat', description1: 'with smart', description2: 'moderation' }
+                ],
+                button: {
+                    title: 'Take a shot',
+                    link: '#features'
+                }
+            })}
+        />
+        <fragment
+            id="features"
+            set:html={tailyUI.FeatureCards({
+                title: 'Secured & sealed',
+                color: colorTheme,
+                reverse: false,
+                featureTitle: 'Streams',
+                featureDescription: [
+                    { type: 'default', value: 'For' },
+                    { type: 'primary', value: 'everyone' },
+                    { type: 'default', value: 'who needs' },
+                    { type: 'primary', value: 'anonymity' },
+                    { type: 'default', value: 'on Web' }
+                ],
+                featureOptions: [
+                    'Protection from IP, browser fingerprint & cookies tracking. Personal information free auth process',
+                    'Powered with two-side encrypted SHA-512 hashing algorithm applied to stream video and audio data, messages, events, donations, hosts & viewers info',
+                    'Zero-trail no-storage data transfer protocol which erases everything after stream or broadcast ends'
+                ],
+                button: {
+                    title: 'Generate hash',
+                    link: '#features_2'
+                }
+            })}
+        />
+        <fragment
+            id="features_2"
+            set:html={tailyUI.FeatureCards({
+                title: 'Customize broadcast',
+                color: colorTheme,
+                reverse: true,
+                featureTitle: 'For yourself',
+                featureDescription: [
+                    { type: 'default', value: 'With 30' },
+                    { type: 'secondary', value: 'colorful' },
+                    { type: 'default', value: 'themes & 9' },
+                    { type: 'secondary', value: 'unique' },
+                    { type: 'default', value: 'sticker packs' }
+                ],
+                featureOptions: [
+                    'Carefully prepared 30 color themes with video loop backgrounds & copyright-free library of lo-fi music',
+                    'Make your chat look unique with 9 different sticker packs for your viewers or use an integrated pixel art tool to create your personal sticker pack',
+                    'Customize stream real-time using build-in redactor, connect more friends & drag their webcam boxes'
+                ],
+                button: {
+                    title: 'Randomize theme',
+                    link: '#stages'
+                }
+            })}
+        />
+        <fragment
+            id="stages"
+            set:html={tailyUI.Jobs({
+                title: 'Project roadmap',
+                color: colorTheme,
+                jobs: [
+                    {
+                        from: getDate(new Date()),
+                        to: getDate(new Date(Date.now() + 3 * 30 * 24 * 60 * 60 * 1000)),
+                        title: 'Phase I: Web privacy jailbreak',
+                        description: [
+                            { type: 'default', value: 'Secured,' },
+                            { type: 'primary', value: 'zero-cookies' },
+                            { type: 'default', value: 'browser' },
+                            { type: 'primary', value: 'fingerprint' }
+                        ],
+                        role: [
+                            'Zero-cookies browser policy will block cookie-based tracking and ensure deletion of any script that attempts to set cookies on site',
+                            'Browser fingerprint obfuscation will generate user-agent strings, modify canvas f-print parameters, and suppress WebGL f-printing',
+                            "Personal information-free auth eliminates the need for email or other private data by utilizing cryptographic tokens for users' auth"
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (3 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (6 * 30 + 1) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase II: Data stream encryption',
+                        description: [
+                            { type: 'default', value: 'Two-side SHA-512' },
+                            { type: 'primary', value: 'hashing' },
+                            { type: 'default', value: 'for every' },
+                            { type: 'primary', value: 'byte' }
+                        ],
+                        role: [
+                            'Two-sided SHA-512 hashing processes data on sender and receiver, ensuring that each byte is encrypted before transmission',
+                            'Multimedia streaming encryption ensures that all relevant data types (messages, events, donation information) are secured',
+                            'Regular security audits on encryption features to identify any potential vulnerabilities or points of failure in the hashing process'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (6 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (9 * 30 + 2) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase III: AES-secured messaging',
+                        description: [
+                            { type: 'default', value: 'Backtracking' },
+                            { type: 'primary', value: 'protected' },
+                            { type: 'default', value: 'messages &' },
+                            { type: 'primary', value: 'chats' }
+                        ],
+                        role: [
+                            'AES-256 encryption for messaging evaluates encryption effectivity, focusing on speed, reliability & security against potential attacks',
+                            "Backtracking protection mechanisms (ephemeral keys, message nonce) ensure that messages can't be retroactively decrypted",
+                            'No-storage data transfer protocol guarantees zero-trail by ensuring that messages are not stored on servers by end of communication'
+                        ]
+                    },
+                    {
+                        from: getDate(new Date(Date.now() + (9 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        to: getDate(new Date(Date.now() + (12 * 30 + 3) * 24 * 60 * 60 * 1000)),
+                        title: 'Phase IV: Themes & customization',
+                        description: [
+                            { type: 'default', value: 'Way to' },
+                            { type: 'primary', value: 'make' },
+                            { type: 'default', value: 'stream' },
+                            { type: 'primary', value: 'experience' },
+                            { type: 'default', value: 'unique' }
+                        ],
+                        role: [
+                            'Customization includes 30 carefully designed color themes with video loop backgrounds and a copyright-free library of lo-fi music',
+                            'Sticker Art Tool integrates an intuitive solution allowing users to create personalized sticker packs or use one of 9 prepared packs',
+                            'Robust real-time editor for stream customization, enabling drag-and-drop live adjustments to themes, layouts, assets & cam boxes'
+                        ]
+                    }
+                ]
+            })}
+        />
+        <ProjectFooter theme={colorTheme} />
+    </main>
+</Layout>

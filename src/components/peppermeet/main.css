@@ -1,0 +1,65 @@
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+#app-root {
+    color: white;
+}
+
+.pm-input,
+.pm-button,
+.pm-message {
+    @apply m-2 flex w-full justify-start rounded-xl border-2 border-neutral-800 bg-gray-200 bg-gradient-to-b from-zinc-200 p-4 backdrop-blur-2xl dark:border-gray-300 dark:bg-zinc-800/30 dark:from-inherit;
+}
+
+.pm-icon {
+    @apply m-0 flex w-full p-4;
+}
+
+.pm-icon.record {
+    @apply !text-red-600;
+}
+
+.pm-backdrop-filter {
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+        var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+        var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.pm-block {
+    @apply pm-backdrop-filter flex border-neutral-800 bg-gray-200 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-gray-300 dark:bg-zinc-800/30 dark:from-inherit;
+}
+
+.pm-camera {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+@media not all and (min-width: 640px) {
+    .max-sm\:translate-3d-0 {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.translate-3d-0 {
+    transform: translate3d(0, 0, 0);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+.pm-logo {
+    mix-blend-mode: darken;
+}

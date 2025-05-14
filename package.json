@@ -5,26 +5,30 @@
     "scripts": {
         "start": "npm run prettier && npm run eslint && astro dev",
         "build": "npm run prettier && npm run eslint && astro check && astro build",
-        "preview": "npm run build && astro preview",
+        "preview": "astro preview",
         "eslint": "eslint --ext .ts,.tsx,.astro src",
-        "prettier": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
+        "prettier": "prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss",
+        "upgrade": "rm package-lock.json && rm -rf node_modules && npm i"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",
-        "@astrojs/tailwind": "^6.0.0",
-        "astro": "^5.2.5",
+        "@astrojs/preact": "^4.0.11",
+        "@astrojs/tailwind": "^6.0.2",
+        "astro": "^5.7.12",
         "autoprefixer": "^10.4.19",
-        "tailwindcss": "^3.4.3",
-        "taily-ui": "^1.2.21",
-        "typescript": "^5.4.4"
+        "preact": "^10.26.6",
+        "tailwindcss": "^3.4.17",
+        "taily-ui": "^1.2.29",
+        "typescript": "^5.8.3"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^7.5.0",
-        "eslint": "^8.57.0",
-        "eslint-plugin-astro": "^0.31.4",
-        "prettier": "^3.2.5",
-        "prettier-plugin-astro": "^0.13.0",
-        "prettier-plugin-tailwindcss": "^0.5.12"
+        "@typescript-eslint/eslint-plugin": "^8.32.1",
+        "@typescript-eslint/parser": "^8.32.1",
+        "eslint": "^9.26.0",
+        "eslint-plugin-astro": "^1.3.1",
+        "prettier": "^3.5.3",
+        "prettier-plugin-astro": "^0.14.1",
+        "prettier-plugin-tailwindcss": "^0.6.11"
     },
     "browserslist": [
         "last 1 chrome version",

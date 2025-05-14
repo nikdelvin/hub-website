@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" width="96px" height="96px">
+<linearGradient id="primary-main-gradient">
+    <stop stop-color="#0ea5e9" offset="0%"></stop>
+    <stop stop-color="#22c55e" offset="100%"></stop>
+</linearGradient>
+<path fill="url(#primary-main-gradient)" d="M5.658 5.1088a.971.971-37 00-.3166.7231L5.2985 23.0011l3.2337-2.4367.0305-12.0397 4.9934 3.4245.0057-2.352-6.6784-4.5788a.983.983-37 00-1.2258.0898zM15.4779 3.3599l-.0305 12.0397-4.9934-3.4245-.0057 2.352 6.6784 4.5788a.987.987-37 001.5422-.8115L18.7112.921z"></path>
+</svg>

@@ -1,0 +1,1003 @@
+@property --background-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #170d17;
+}
+
+@property --background-color-opacity {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #170d1766;
+}
+
+@property --primary-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #b53f3b;
+}
+
+@property --primary-color-opacity {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #b53f3b66;
+}
+
+@property --action-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #58e3e9;
+}
+
+@property --action-color-opacity {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #58e3e966;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Logo';
+    src: url('/cybergelion/fonts/cyberpunk-logo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-thin-italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-book-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-medium-italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-bold-italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cyberpunk Font';
+    src: url('/cybergelion/fonts/cyberpunk-font-heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.cg-app-root {
+    font-family: 'Cyberpunk Font', sans-serif !important;
+    line-height: 1;
+    font-weight: normal;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    margin: 0;
+    text-align: center;
+    color-scheme: dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+}
+
+.cg-app-main {
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.cg-logo {
+    font-family: 'Cyberpunk Logo', sans-serif;
+    font-size: 12vw;
+    letter-spacing: -1.6vw;
+    color: var(--action-color);
+    margin: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.cg-title {
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.cg-text {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .cg-logo {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .cg-title {
+        font-size: 1.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    .cg-text {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .cg-logo {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+    .cg-title {
+        font-size: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .cg-text {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+}
+
+.cg-button {
+    --b: 2px;
+    --s: 1rem;
+    min-width: 250px;
+    max-width: 300px;
+    width: auto;
+    margin: 1rem auto;
+    padding: 1rem;
+    height: 3.5rem;
+    border: var(--b) solid var(--primary-color);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--s)), calc(100% - var(--s)) 100%, 0 100%);
+    background: linear-gradient(-45deg, var(--primary-color) calc(0.7 * var(--s) + var(--b)), var(--background-color) 0)
+        border-box;
+    color: var(--action-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Cyberpunk Font';
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.cg-button:hover,
+.cg-button.active {
+    cursor: pointer;
+    border: 2px solid var(--action-color);
+    background: linear-gradient(-45deg, var(--action-color) calc(0.7 * var(--s) + var(--b)), var(--background-color) 0)
+        border-box;
+}
+
+.cg-button pre {
+    position: absolute;
+    right: 1rem;
+    width: 24px;
+    font-size: 6px;
+    font-weight: normal;
+    font-family: 'Cyberpunk Font';
+    line-height: 1;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.cg-button.characters {
+    margin: 0.5rem 1rem;
+    width: -webkit-fill-available;
+}
+
+.music-card {
+    --b: 2px;
+    --s: 1rem;
+    height: 8rem;
+    width: 8rem;
+    border: var(--b) solid var(--primary-color);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--s)), calc(100% - var(--s)) 100%, 0 100%);
+    background: linear-gradient(-45deg, var(--primary-color) calc(0.7 * var(--s) + var(--b)), #0000 0) border-box;
+    background-color: var(--background-color);
+    color: transparent;
+    font-size: 1rem;
+    font-family: 'Cyberpunk Font';
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    -webkit-transition:
+        bottom 1s,
+        right 1s;
+    transition:
+        bottom 1s,
+        right 1s;
+}
+
+.music-card .hover-box {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 14px;
+    background-color: var(--primary-color-opacity);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-card:nth-child(10) .hover-area {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 14px;
+    pointer-events: all;
+}
+
+.music-card:nth-child(10) .play-button {
+    pointer-events: all;
+}
+
+.music-card:not(:nth-child(10)) .hover-area {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 32px;
+    height: 14px;
+    pointer-events: all;
+}
+
+.music-card:not(:nth-child(10)) .sound-mixer {
+    opacity: 0;
+}
+
+.music-card.example .sound-mixer {
+    opacity: 1 !important;
+}
+
+.music-card.play .hover-area,
+.music-card.pause .hover-area,
+.music-card.loading .hover-area {
+    width: 100% !important;
+    height: 0px !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 650px) {
+    .music-card .hover-box {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 14px;
+        height: 100%;
+        background-color: var(--primary-color-opacity);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .music-card:nth-child(10) .hover-area {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 14px;
+        height: 100%;
+        pointer-events: all;
+    }
+    .music-card:not(:nth-child(10)) .hover-area {
+        position: absolute;
+        top: calc(100% - 32px);
+        left: 0px;
+        width: 14px;
+        height: 32px;
+        pointer-events: all;
+    }
+    .music-card .hover-area:hover,
+    .music-card:has(.play-button:hover) .hover-area {
+        top: 0px;
+    }
+    .las.la-caret-up:before {
+        content: '\f0d9';
+    }
+}
+
+.music-card .hover-area:hover,
+.music-card:has(.play-button:hover) .hover-area {
+    height: 100%;
+    width: 100%;
+    z-index: 24;
+    background-color: transparent;
+    color: transparent;
+    pointer-events: all;
+}
+
+.music-card:has(.hover-area:hover) .hover-box,
+.music-card:has(.play-button:hover) .hover-box {
+    opacity: 0;
+}
+
+.music-card.play .hover-box,
+.music-card.pause .hover-box,
+.music-card.loading .hover-box {
+    opacity: 0;
+}
+
+.music-card:has(.hover-area:hover) .play-button,
+.music-card:has(.play-button:hover) .play-button {
+    z-index: 25;
+}
+
+.music-card:nth-child(1) {
+    z-index: 1;
+}
+.music-card:nth-child(2) {
+    z-index: 3;
+}
+.music-card:nth-child(3) {
+    z-index: 5;
+}
+.music-card:nth-child(4) {
+    z-index: 7;
+}
+.music-card:nth-child(5) {
+    z-index: 9;
+}
+.music-card:nth-child(6) {
+    z-index: 11;
+}
+.music-card:nth-child(7) {
+    z-index: 13;
+}
+.music-card:nth-child(8) {
+    z-index: 15;
+}
+.music-card:nth-child(9) {
+    z-index: 17;
+}
+.music-card:nth-child(10) {
+    z-index: 19;
+    color: var(--action-color);
+}
+.music-card.example {
+    color: var(--action-color);
+    position: relative;
+}
+
+@media screen and (min-width: 651px) {
+    .music-card:nth-child(1) {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    .music-card:nth-child(2) {
+        right: 2rem;
+        bottom: 1.4rem;
+    }
+    .music-card:nth-child(3) {
+        right: 3rem;
+        bottom: 1.8rem;
+    }
+    .music-card:nth-child(4) {
+        right: 4rem;
+        bottom: 2.2rem;
+    }
+    .music-card:nth-child(5) {
+        right: 5rem;
+        bottom: 2.6rem;
+    }
+    .music-card:nth-child(6) {
+        right: 6rem;
+        bottom: 3rem;
+    }
+    .music-card:nth-child(7) {
+        right: 7rem;
+        bottom: 3.4rem;
+    }
+    .music-card:nth-child(8) {
+        right: 8rem;
+        bottom: 3.8rem;
+    }
+    .music-card:nth-child(9) {
+        right: 9rem;
+        bottom: 4.2rem;
+    }
+    .music-card:nth-child(10) {
+        right: 10rem;
+        bottom: 4.6rem;
+    }
+    .music-card.play,
+    .music-card.pause,
+    .music-card.loading {
+        bottom: 5rem;
+        right: 11rem;
+    }
+    .music-card:has(.hover-area:hover),
+    .music-card:has(.play-button:hover) {
+        bottom: 5.4rem;
+    }
+    .music-card.play:has(.play-button:hover),
+    .music-card.pause:has(.play-button:hover),
+    .music-card.loading:has(.play-button:hover) {
+        bottom: 5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .music-card:nth-child(1) {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    .music-card:nth-child(2) {
+        right: 1.4rem;
+        bottom: 2rem;
+    }
+    .music-card:nth-child(3) {
+        right: 1.8rem;
+        bottom: 3rem;
+    }
+    .music-card:nth-child(4) {
+        right: 2.2rem;
+        bottom: 4rem;
+    }
+    .music-card:nth-child(5) {
+        right: 2.6rem;
+        bottom: 5rem;
+    }
+    .music-card:nth-child(6) {
+        right: 3rem;
+        bottom: 6rem;
+    }
+    .music-card:nth-child(7) {
+        right: 3.4rem;
+        bottom: 7rem;
+    }
+    .music-card:nth-child(8) {
+        right: 3.8rem;
+        bottom: 8rem;
+    }
+    .music-card:nth-child(9) {
+        right: 4.2rem;
+        bottom: 9rem;
+    }
+    .music-card:nth-child(10) {
+        right: 4.6rem;
+        bottom: 10rem;
+    }
+    .music-card.play,
+    .music-card.pause,
+    .music-card.loading {
+        bottom: 11rem;
+        right: 5rem;
+    }
+    .music-card:has(.hover-area:hover),
+    .music-card:has(.play-button:hover) {
+        right: 5.4rem;
+    }
+    .music-card.play:has(.play-button:hover),
+    .music-card.pause:has(.play-button:hover),
+    .music-card.loading:has(.play-button:hover) {
+        right: 5rem;
+    }
+}
+
+.music-card.play,
+.music-card.pause,
+.music-card.loading {
+    z-index: 21;
+    pointer-events: all;
+    border: 2px solid var(--action-color);
+    color: var(--action-color);
+    background: linear-gradient(-45deg, var(--action-color) calc(0.7 * var(--s) + var(--b)), var(--background-color) 0)
+        border-box;
+    -webkit-transition:
+        bottom 1s,
+        right 1s;
+    transition:
+        bottom 1s,
+        right 1s;
+}
+
+.music-card:has(.hover-area:hover),
+.music-card:has(.play-button:hover) {
+    cursor: pointer;
+    z-index: 23;
+    border: 2px solid var(--action-color);
+    color: var(--action-color);
+    background: linear-gradient(-45deg, var(--action-color) calc(0.7 * var(--s) + var(--b)), var(--background-color) 0)
+        border-box;
+    -webkit-transition:
+        bottom 1s,
+        right 1s;
+    transition:
+        bottom 1s,
+        right 1s;
+}
+
+.music-card.play .sound-mixer,
+.music-card.pause .sound-mixer,
+.music-card.loading .sound-mixer {
+    opacity: 1;
+}
+
+.music-card:has(.hover-area:hover) .sound-mixer,
+.music-card:has(.play-button:hover) .sound-mixer {
+    opacity: 1;
+}
+
+.music-card .card-title {
+    font-size: 0.75rem;
+    margin: 0.75rem 0.5rem;
+    word-break: break-all;
+}
+
+.music-card .play-button {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.music-card:has(.hover-area:hover) .play-button,
+.music-card:has(.play-button:hover) .play-button {
+    pointer-events: all;
+}
+
+.music-card.play .play-button,
+.music-card.pause .play-button,
+.music-card.loading .play-button {
+    pointer-events: all;
+}
+
+.music-card .sound-mixer {
+    display: flex;
+    flex-direction: row;
+    rotate: 180deg;
+    height: 1rem;
+}
+
+.music-card .sound-mixer .sound-bar {
+    height: 0rem;
+    width: 2px;
+    background-color: var(--action-color);
+    margin: 0px 1px;
+    animation-name: soundBar;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.music-card.stop .sound-mixer .sound-bar,
+.music-card.pause .sound-mixer .sound-bar {
+    animation-name: soundBarLow;
+}
+
+.sound-bar:nth-child(1) {
+    animation-duration: 474ms;
+}
+.sound-bar:nth-child(2) {
+    animation-duration: 433ms;
+}
+.sound-bar:nth-child(3) {
+    animation-duration: 407ms;
+}
+.sound-bar:nth-child(4) {
+    animation-duration: 458ms;
+}
+.sound-bar:nth-child(5) {
+    animation-duration: 400ms;
+}
+.sound-bar:nth-child(6) {
+    animation-duration: 427ms;
+}
+.sound-bar:nth-child(7) {
+    animation-duration: 441ms;
+}
+.sound-bar:nth-child(8) {
+    animation-duration: 419ms;
+}
+.sound-bar:nth-child(9) {
+    animation-duration: 487ms;
+}
+.sound-bar:nth-child(10) {
+    animation-duration: 442ms;
+}
+.sound-bar:nth-child(11) {
+    animation-duration: 429ms;
+}
+.sound-bar:nth-child(12) {
+    animation-duration: 409ms;
+}
+
+@keyframes soundBar {
+    from {
+        height: 0rem;
+    }
+    to {
+        height: 1rem;
+    }
+}
+
+@keyframes soundBarLow {
+    from {
+        height: 0rem;
+    }
+    to {
+        height: 0.2rem;
+    }
+}
+
+.cg-loader {
+    height: 2rem;
+    width: 2rem;
+    border: 2px solid var(--action-color);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cg-mask {
+    color: var(--primary-color-opacity);
+    background-color: var(--background-color-opacity);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: justify;
+    width: 320px;
+    z-index: 0;
+}
+
+@media screen and (max-width: 650px) {
+    .cg-mask {
+        border: 3px solid var(--primary-color);
+        width: 322px;
+        transform: scale(0.8);
+        left: -2rem;
+        bottom: -2rem;
+    }
+}
+
+.cg-mask div {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cg-mask span {
+    margin: 0rem;
+    text-align: justify;
+    font-family: 'Cyberpunk Font';
+}
+
+.cg-mask img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 316px;
+    height: 316px;
+    opacity: 0.6;
+}
+
+.cg-version {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: var(--action-color);
+}
+
+.cg-overlay {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    background-color: transparent;
+    -webkit-transition:
+        z-index 1s 0s,
+        background-color 1s;
+    transition:
+        z-index 1s 0s,
+        background-color 1s;
+}
+
+.cg-overlay.show {
+    z-index: 1000;
+    background-color: var(--background-color-opacity);
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
+}
+
+.cg-overlay .cg-modal {
+    min-height: 480px;
+    height: auto;
+    min-width: 320px;
+    width: auto;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin: 0px 200% 0px 0px;
+    z-index: 1001;
+    -webkit-transition: margin 1s;
+    transition: margin 1s;
+}
+
+.cg-overlay.show .cg-modal {
+    margin: 0px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.cg-cross {
+    position: relative;
+    width: 100%;
+    margin: 0px;
+}
+
+.cg-cross i {
+    cursor: pointer;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--action-color);
+    background-color: var(--background-color);
+}
+
+.cg-cross p {
+    position: absolute;
+    left: 1rem;
+    top: 2px;
+    height: 3rem;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--action-color);
+    background-color: var(--background-color);
+}
+
+.cg-modal .cg-content {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cg-form h1 {
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Cyberpunk Font';
+}
+
+.cg-form input {
+    height: 3rem;
+    width: calc(100% - 2rem);
+    padding: 0.25rem 0.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--action-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0px;
+    font-family: 'Cyberpunk Font';
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.cg-form input:focus {
+    outline: none;
+}
+
+.cg-form input::placeholder {
+    color: var(--action-color-opacity);
+}
+
+.cg-overlay .cg-chat {
+    height: 640px;
+    min-width: 320px;
+    width: auto;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin: 0px 200% 0px 0px;
+    z-index: 1010;
+    -webkit-transition: margin 1s;
+    transition: margin 1s;
+}
+
+.cg-overlay.show .cg-chat {
+    margin: 0px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.cg-chat .cg-messages {
+    margin: 1rem 1rem;
+    margin-top: 3.5rem;
+    height: 100%;
+    width: 320px;
+    overflow: scroll;
+}
+
+.cg-chat .cg-messages::-webkit-scrollbar {
+    width: 2px;
+    height: 0px;
+    background-color: transparent;
+}
+
+.cg-chat .cg-messages::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+.cg-chat .cg-form {
+    display: flex;
+    flex-direction: row;
+    margin: 0 1rem;
+}
+
+.cg-chat .cg-form textarea {
+    height: 2rem;
+    min-height: 2rem;
+    max-height: 6rem;
+    width: 320px;
+    max-width: 320px;
+    min-width: 320px;
+    padding: 0.3rem 0.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--action-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0px;
+    font-family: 'Cyberpunk Font';
+    font-size: 1rem;
+    font-weight: 500;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.cg-chat .cg-form textarea:focus {
+    outline: none;
+}
+
+.cg-chat .cg-form textarea::placeholder {
+    color: var(--action-color-opacity);
+}
+
+textarea::-webkit-resizer {
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent var(--action-color-opacity) var(--action-color-opacity) transparent;
+}
+
+.cg-messages .cg-message.from {
+    --b: 1px;
+    --s: 1rem;
+    width: 310px;
+    padding: 0.5rem;
+    padding-right: 1rem;
+    margin: 0 0 1rem 0;
+    border: var(--b) solid var(--primary-color);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--s)), calc(100% - var(--s)) 100%, 0 100%);
+    background: linear-gradient(-45deg, var(--primary-color) calc(0.7 * var(--s) + var(--b)), #0000 0) border-box;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Cyberpunk Font';
+    position: relative;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+}
+
+.cg-messages .cg-message.to {
+    --b: 1px;
+    --s: 1rem;
+    width: 310px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    margin: 0 0 1rem 0;
+    border: var(--b) solid var(--action-color);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--s) 100%, 0 calc(100% - var(--s)));
+    background: linear-gradient(45deg, var(--action-color) calc(0.7 * var(--s) + var(--b)), #0000 0) border-box;
+    background-color: var(--background-color);
+    color: var(--action-color);
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Cyberpunk Font';
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    text-align: end;
+}

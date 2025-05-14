@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../../layouts/taily-ui/Layout.astro'
+import Layout from '../../../../layouts/ProjectLayout.astro'
 import ButtonGroup from '../../../../components/taily-ui/buttons/ButtonGroup.astro'
 import { Code } from 'astro:components'
 import Taily from '../../../../icons/taily-ui/taily.astro'
@@ -9,10 +9,11 @@ import Taily from '../../../../icons/taily-ui/taily.astro'
     title="Taily UI - Button Group Component"
     description="Beautiful, fast, and modern UI Library 100% built and animated with pure Tailwind CSS."
     keywords="web de, website, logo design, graphic design, website design, website builder, website templates, web development, graphic designer, web page, brochure design, web designer, webdesign, web developer, ecommerce website, create a website, logo designer, free website templates, web design company, website creator, design logo, website designer, responsive web design, create website, criar site"
-    url="https://tailyui.by.nikdelv.in/"
-    imageUrl="https://nikdelv.in/projects/tailyui.jpg"
+    url="https://hub.by.nikdelv.in/taily-ui"
+    imageUrl="/projects/tailyui.jpg"
     brand="Taily UI"
     color="secondary"
+    parent="/taily-ui"
 >
     <main class="select-none overflow-hidden">
         <div class="flex h-screen w-screen flex-col overflow-y-scroll">
@@ -22,7 +23,7 @@ import Taily from '../../../../icons/taily-ui/taily.astro'
                         <div class="flex h-full w-[300px] flex-col overflow-y-scroll">
                             <a
                                 class="mb-4 flex flex-row items-center gap-2"
-                                href="/"
+                                href="/taily-ui"
                             >
                                 <div class="h-[40px] w-[40px]"><Taily /></div>
                                 <h1
@@ -36,7 +37,7 @@ import Taily from '../../../../icons/taily-ui/taily.astro'
                                 <div class="mx-2 my-auto flex h-[4px] w-[4px] rounded-full bg-zinc-500"></div>
                                 <a
                                     class="text-zinc-500"
-                                    href="/docs/components/buttons"
+                                    href="/taily-ui/docs/components/buttons"
                                     >Buttons</a
                                 >
                             </div>
@@ -48,7 +49,7 @@ import Taily from '../../../../icons/taily-ui/taily.astro'
                                 <div class="mx-2 my-auto flex h-[4px] w-[4px] rounded-full bg-zinc-500"></div>
                                 <a
                                     class="text-zinc-500"
-                                    href="/docs/components/cards"
+                                    href="/taily-ui/docs/components/cards"
                                     >Cards</a
                                 >
                             </div>
