@@ -16,6 +16,7 @@
                     placeholder="Enter email to get started"
                 />
                 <button
+                    id="email-submit"
                     class="font-heading tracking-px group relative w-full overflow-hidden rounded-md bg-gray-900 px-8 py-4 text-xs font-semibold uppercase text-white md:w-auto"
                 >
                     <div
@@ -28,3 +29,20 @@
         </div>
     </div>
 </section>
+<script>
+    import Swal from 'sweetalert2'
+    const submit = document.querySelector('#email-submit')
+    submit?.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Registration is temporarily closed',
+            width: 345,
+            background: '#000 url(/assets/gradients/radial18.svg)',
+            customClass: {
+                popup: '!bg-black !bg-cover !bg-top border-solid border-[1px] border-gray-800 rounded-2xl',
+                title: 'font-heading text-4xl font-bold !leading-[1.5] pb-8 bg-gradient-orange bg-clip-text text-transparent',
+                confirmButton:
+                    'bg-gradient-orange hover:!bg-gradient-orange-hover pb-4 bg-black transition duration-500 ease-in-out text-white relative overflow-hidden rounded-full px-14 py-5'
+            }
+        })
+    })
+</script>

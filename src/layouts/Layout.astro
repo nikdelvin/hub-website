@@ -1,5 +1,15 @@
 ---
 import '../styles/landing.css'
+interface Props {
+    title: string
+    description: string
+    keywords: string
+    url: string
+    imageUrl: string
+    brand: string
+}
+
+const { title, description, keywords, url, imageUrl, brand } = Astro.props
 ---
 
 <!doctype html>
@@ -49,6 +59,84 @@ import '../styles/landing.css'
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1"
+        />
+        <meta
+            name="robots"
+            content="index, follow"
+        />
+        <meta
+            name="author"
+            content="Nikita Stadnik (the@nikdelv.in)"
+        />
+        <meta
+            name="description"
+            content={description}
+        />
+        <meta
+            name="keywords"
+            content={keywords}
+        />
+        <meta
+            name="theme-color"
+            content="#000000"
+        />
+        <meta
+            property="og:title"
+            content={title}
+        />
+        <meta
+            property="og:description"
+            content={description}
+        />
+        <meta
+            property="og:url"
+            content={url}
+        />
+        <meta
+            property="og:image"
+            content={imageUrl}
+        />
+        <meta
+            property="og:type"
+            content="website"
+        />
+        <meta
+            property="og:site_name"
+            content={brand}
+        />
+        <meta
+            name="twitter:card"
+            content="summary_large_image"
+        />
+        <meta
+            name="twitter:title"
+            content={title}
+        />
+        <meta
+            name="twitter:description"
+            content={description}
+        />
+        <meta
+            name="twitter:image"
+            content={imageUrl}
+        />
+        <meta
+            name="twitter:site"
+            content="@nikdelvin"
+        />
+        <link
+            rel="canonical"
+            href={url}
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href={`/favicon.svg?v=${Date.now()}`}
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href={`/favicon.svg?v=${Date.now()}`}
         />
         <link
             rel="preload"
@@ -108,6 +196,11 @@ import '../styles/landing.css'
             rel="stylesheet"
             href={`https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap`}
         />
+        <meta
+            name="generator"
+            content={Astro.generator}
+        />
+        <title>{title}</title>
     </head>
     <body class="opacity-0 transition-opacity duration-500 ease-in-out">
         <noscript
@@ -138,31 +231,14 @@ import '../styles/landing.css'
     const arrowBack = document.querySelector('#arrow-back')
     const arrowBackColor = document.querySelector('#arrow-back-color')
     const projectsSlider = document.querySelector('#projects-slider') as HTMLElement
-    const activeSlide = Number(localStorage.getItem('activeSlide') ?? '0')
-    const sliderState = { slideWidth: 0, activeSlide: activeSlide, slideCount: 9 }
-    if (sliderState.activeSlide > 0 && sliderState.activeSlide < sliderState.slideCount) {
-        for (let i = 0; i < sliderState.activeSlide; i++) {
-            sliderState.slideWidth +=
-                document.querySelector<HTMLElement>('#project' + sliderState.activeSlide)?.offsetWidth ?? 0
-        }
-        if (sliderState.activeSlide === sliderState.slideCount - 1) {
-            arrowNextColor?.setAttribute('stroke', '#3F3F46')
-            arrowBackColor?.setAttribute('stroke', 'white')
-        } else {
-            arrowNextColor?.setAttribute('stroke', 'white')
-            if (sliderState.activeSlide === 0) arrowBackColor?.setAttribute('stroke', '#3F3F46')
-            else arrowBackColor?.setAttribute('stroke', 'white')
-        }
-    }
-    projectsSlider.style.transitionDuration = '0ms'
-    projectsSlider.style.transform = 'translateX(-' + sliderState.slideWidth + 'px)'
-    arrowNext?.addEventListener('click', function () {
-        projectsSlider.style.transitionDuration = '500ms'
-        if (sliderState.activeSlide < sliderState.slideCount - 1) {
-            sliderState.activeSlide += 1
-            localStorage.setItem('activeSlide', String(sliderState.activeSlide))
-            sliderState.slideWidth +=
-                document.querySelector<HTMLElement>('#project' + sliderState.activeSlide)?.offsetWidth ?? 0
+    if (projectsSlider != null) {
+        const activeSlide = Number(localStorage.getItem('activeSlide') ?? '0')
+        const sliderState = { slideWidth: 0, activeSlide: activeSlide, slideCount: 9 }
+        if (sliderState.activeSlide > 0 && sliderState.activeSlide < sliderState.slideCount) {
+            for (let i = 0; i < sliderState.activeSlide; i++) {
+                sliderState.slideWidth +=
+                    document.querySelector<HTMLElement>('#project' + sliderState.activeSlide)?.offsetWidth ?? 0
+            }
             if (sliderState.activeSlide === sliderState.slideCount - 1) {
                 arrowNextColor?.setAttribute('stroke', '#3F3F46')
                 arrowBackColor?.setAttribute('stroke', 'white')
@@ -171,37 +247,56 @@ import '../styles/landing.css'
                 if (sliderState.activeSlide === 0) arrowBackColor?.setAttribute('stroke', '#3F3F46')
                 else arrowBackColor?.setAttribute('stroke', 'white')
             }
-        } else {
-            arrowNextColor?.setAttribute('stroke', '#3F3F46')
-            arrowBackColor?.setAttribute('stroke', 'white')
-            sliderState.activeSlide = sliderState.slideCount - 1
-            localStorage.setItem('activeSlide', String(sliderState.activeSlide))
         }
+        projectsSlider.style.transitionDuration = '0ms'
         projectsSlider.style.transform = 'translateX(-' + sliderState.slideWidth + 'px)'
-    })
-    arrowBack?.addEventListener('click', function () {
-        projectsSlider.style.transitionDuration = '500ms'
-        if (sliderState.activeSlide > 0) {
-            sliderState.activeSlide -= 1
-            localStorage.setItem('activeSlide', String(sliderState.activeSlide))
-            sliderState.slideWidth -=
-                document.querySelector<HTMLElement>('#project' + (sliderState.activeSlide + 1))?.offsetWidth ?? 0
-            if (sliderState.activeSlide === 0) {
+        arrowNext?.addEventListener('click', function () {
+            projectsSlider.style.transitionDuration = '500ms'
+            if (sliderState.activeSlide < sliderState.slideCount - 1) {
+                sliderState.activeSlide += 1
+                localStorage.setItem('activeSlide', String(sliderState.activeSlide))
+                sliderState.slideWidth +=
+                    document.querySelector<HTMLElement>('#project' + sliderState.activeSlide)?.offsetWidth ?? 0
+                if (sliderState.activeSlide === sliderState.slideCount - 1) {
+                    arrowNextColor?.setAttribute('stroke', '#3F3F46')
+                    arrowBackColor?.setAttribute('stroke', 'white')
+                } else {
+                    arrowNextColor?.setAttribute('stroke', 'white')
+                    if (sliderState.activeSlide === 0) arrowBackColor?.setAttribute('stroke', '#3F3F46')
+                    else arrowBackColor?.setAttribute('stroke', 'white')
+                }
+            } else {
+                arrowNextColor?.setAttribute('stroke', '#3F3F46')
+                arrowBackColor?.setAttribute('stroke', 'white')
+                sliderState.activeSlide = sliderState.slideCount - 1
+                localStorage.setItem('activeSlide', String(sliderState.activeSlide))
+            }
+            projectsSlider.style.transform = 'translateX(-' + sliderState.slideWidth + 'px)'
+        })
+        arrowBack?.addEventListener('click', function () {
+            projectsSlider.style.transitionDuration = '500ms'
+            if (sliderState.activeSlide > 0) {
+                sliderState.activeSlide -= 1
+                localStorage.setItem('activeSlide', String(sliderState.activeSlide))
+                sliderState.slideWidth -=
+                    document.querySelector<HTMLElement>('#project' + (sliderState.activeSlide + 1))?.offsetWidth ?? 0
+                if (sliderState.activeSlide === 0) {
+                    arrowBackColor?.setAttribute('stroke', '#3F3F46')
+                    arrowNextColor?.setAttribute('stroke', 'white')
+                } else {
+                    arrowBackColor?.setAttribute('stroke', 'white')
+                    if (sliderState.activeSlide === sliderState.slideCount - 1)
+                        arrowNextColor?.setAttribute('stroke', '#3F3F46')
+                    else arrowNextColor?.setAttribute('stroke', 'white')
+                }
+            } else {
                 arrowBackColor?.setAttribute('stroke', '#3F3F46')
                 arrowNextColor?.setAttribute('stroke', 'white')
-            } else {
-                arrowBackColor?.setAttribute('stroke', 'white')
-                if (sliderState.activeSlide === sliderState.slideCount - 1)
-                    arrowNextColor?.setAttribute('stroke', '#3F3F46')
-                else arrowNextColor?.setAttribute('stroke', 'white')
+                sliderState.activeSlide = 0
+                localStorage.setItem('activeSlide', String(sliderState.activeSlide))
             }
-        } else {
-            arrowBackColor?.setAttribute('stroke', '#3F3F46')
-            arrowNextColor?.setAttribute('stroke', 'white')
-            sliderState.activeSlide = 0
-            localStorage.setItem('activeSlide', String(sliderState.activeSlide))
-        }
-        projectsSlider.style.transform = 'translateX(-' + sliderState.slideWidth + 'px)'
-    })
+            projectsSlider.style.transform = 'translateX(-' + sliderState.slideWidth + 'px)'
+        })
+    }
     document.body.style.opacity = '100%'
 </script>

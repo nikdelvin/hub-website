@@ -204,12 +204,16 @@ export default {
                         'gradient-indigo': 'linear-gradient(98.24deg, #5D75F3 0%, #A279F9 100%)',
                         'gradient-fuchsia':
                             'linear-gradient(112.84deg, #46BAEB 0.33%, #AF2CFF 38.23%, #F790AF 65.22%, #C1ABFF 100%)',
+                        'gradient-fuchsia-hover':
+                            'linear-gradient(112.84deg, #46BAEBB3 0.33%, #AF2CFFB3 38.23%, #F790AFB3 65.22%, #C1ABFFB3 100%)',
                         'gradient-blue2': 'linear-gradient(90.41deg, #E0E7FF 0.25%, rgba(224, 231, 255, 0) 99.64%)',
                         'gradient-orange': 'linear-gradient(98.24deg, #FFB36D 0%, #EC5353 100%)',
+                        'gradient-orange-hover': 'linear-gradient(98.24deg, #FFB36DB3 0%, #EC5353B3 100%)',
                         'gradient-purple2': 'linear-gradient(98.24deg, #F39682 0.01%, #7446F7 100%)',
                         'gradient-black2': 'linear-gradient(133.11deg, #18181B 0%, #2E2E33 100%)',
                         'gradient-orange2': 'linear-gradient(98.24deg, #EC5353 0%, #FFB36D 100%)',
                         'gradient-blue': 'linear-gradient(98.24deg, #56C1E3 0%, #5B6AF0 100%)',
+                        'gradient-blue-hover': 'linear-gradient(98.24deg, #56C1E3B3 0%, #5B6AF0B3 100%)',
                         'gradient-purple': 'linear-gradient(98.24deg, #6C2DD1 0%, #FF7DBC 100%)',
                         'gradient-violet2': 'linear-gradient(98.24deg, #FF9483 0%, #FFCBA4 0.01%, #8479F9 100%)',
                         'gradient-cyan':

@@ -150,6 +150,7 @@
                     </ul>
                     <div class="w-full px-2 pb-2">
                         <button
+                            id="pay-button"
                             class="font-heading tracking-px w-full rounded-md border border-gray-500 px-6 py-4 text-xs font-semibold uppercase text-white hover:border-gray-600"
                             >Get UI kit</button
                         >
@@ -290,6 +291,7 @@
                     </ul>
                     <div class="w-full px-2 pb-2">
                         <button
+                            id="pay-button"
                             class="font-heading tracking-px w-full rounded-md border border-gray-500 px-6 py-4 text-xs font-semibold uppercase text-white hover:border-gray-600"
                             >Get UI bundle</button
                         >
@@ -436,6 +438,7 @@
                         </ul>
                         <div class="w-full px-2 pb-2">
                             <button
+                                id="pay-button"
                                 class="bg-gradient-cyan font-heading group relative block w-full overflow-hidden rounded-md p-px text-base font-bold text-gray-900"
                             >
                                 <div
@@ -586,6 +589,7 @@
                     </ul>
                     <div class="w-full px-2 pb-2">
                         <button
+                            id="pay-button"
                             class="font-heading tracking-px w-full rounded-md border border-gray-500 px-6 py-4 text-xs font-semibold uppercase text-white hover:border-gray-600"
                             >Integrate with AI</button
                         >
@@ -595,3 +599,22 @@
         </div>
     </div>
 </section>
+<script>
+    import Swal from 'sweetalert2'
+    const buttons = document.querySelectorAll('#pay-button')
+    for (const button of buttons) {
+        button?.addEventListener('click', () => {
+            Swal.fire({
+                title: 'Purchases are temporarily closed',
+                width: 345,
+                background: '#000 url(/assets/gradients/radial18.svg)',
+                customClass: {
+                    popup: '!bg-black !bg-cover !bg-top border-solid border-[1px] border-gray-800 rounded-2xl',
+                    title: 'font-heading text-4xl font-bold !leading-[1.5] pb-8 bg-gradient-orange bg-clip-text text-transparent',
+                    confirmButton:
+                        'bg-gradient-orange hover:!bg-gradient-orange-hover pb-4 bg-black transition duration-500 ease-in-out text-white relative overflow-hidden rounded-full px-14 py-5'
+                }
+            })
+        })
+    }
+</script>
