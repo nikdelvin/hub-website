@@ -7,6 +7,25 @@ interface Props {
 }
 
 const { brand, color } = Astro.props
+
+function renderBackround(color = 'default') {
+    switch (color) {
+        case 'default':
+            return 'from-indigo-200 via-blue-200 to-sky-200'
+        case 'secondary':
+            return 'from-purple-500 via-violet-500 to-indigo-500'
+        case 'primary':
+            return 'from-blue-500 via-sky-500 to-cyan-500'
+        case 'success':
+            return 'from-teal-500 via-emerald-500 to-green-500'
+        case 'warning':
+            return 'from-yellow-500 via-amber-500 to-orange-500'
+        case 'error':
+            return 'from-red-500 via-rose-500 to-pink-500'
+        case 'ghost':
+            return 'from-zinc-400 via-gray-400 to-slate-400'
+    }
+}
 ---
 
 <div class="pointer-events-none sticky top-0 z-[1000] flex h-0 w-full select-none overflow-visible">
@@ -98,7 +117,7 @@ const { brand, color } = Astro.props
                             class="card mb-4 !max-h-16 !min-h-16 !w-full"
                         >
                             <span
-                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} bg-clip-text font-sans text-lg font-medium text-transparent`}
+                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text font-sans text-lg font-medium text-transparent`}
                             >
                                 Card
                             </span>
@@ -124,14 +143,14 @@ const { brand, color } = Astro.props
                             class="card mb-4 aspect-square !h-[200px] !min-h-[200px] !w-[200px] !min-w-[200px] font-sans text-white"
                         >
                             <h1
-                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} bg-clip-text pb-4 text-[3.5rem] font-bold leading-[1] text-transparent`}
+                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text pb-4 text-[3.5rem] font-bold leading-[1] text-transparent`}
                             >
                                 6
                             </h1>
                             <h2 class="pb-4 text-center text-2xl font-bold">
                                 years of{' '}
                                 <span
-                                    class={`inline bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} bg-clip-text text-transparent`}
+                                    class={`inline bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text text-transparent`}
                                 >
                                     experience
                                 </span>
@@ -190,17 +209,17 @@ const { brand, color } = Astro.props
                             data-color={color ?? 'default'}
                         >
                             <div
-                                class={`pointer-events-none absolute left-[2px] top-[2px] z-[1] h-[152px] w-[calc(100%-4px)] rounded-[22px] bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} opacity-25`}
+                                class={`pointer-events-none absolute left-[2px] top-[2px] z-[1] h-[152px] w-[calc(100%-4px)] rounded-[22px] bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} opacity-25`}
                             />
                             <iframe
-                                class="grayscale"
+                                data-testid="embed-iframe"
                                 style="border-radius:22px"
                                 src="https://open.spotify.com/embed/track/5TL04XPWpL2rTK7HLBWK6N?utm_source=generator&theme=0"
                                 width="100%"
                                 height="152"
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"
-                            />
+                            ></iframe>
                         </div>
                     </div>
                 )
@@ -524,12 +543,12 @@ const { brand, color } = Astro.props
                             />
                             <div
                                 id="webcam"
-                                class="pm-block absolute bottom-0 left-0 z-50 h-auto w-[100px] rounded-bl-xl rounded-tr-xl"
+                                class="pm-block absolute bottom-0 left-0 z-50 max-h-[50px] h-[50px] w-[50px] rounded-bl-xl rounded-tr-xl"
                             >
                                 <video
                                     playsinline=""
                                     autoplay=""
-                                    class="pm-camera h-auto w-[100px] rounded-br-xl rounded-tl-xl"
+                                    class="pm-camera h-auto w-[50px] rounded-br-xl rounded-tl-xl"
                                 />
                                 <audio
                                     playsinline=""
