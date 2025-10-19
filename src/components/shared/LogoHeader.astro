@@ -106,7 +106,7 @@ function renderBackround(color = 'default') {
                             <Code
                                 class="!text-wrap !bg-transparent !px-[6px] !py-[4px] !text-[10px] !leading-[14px]"
                                 code={`<div ${color !== 'ghost' && color !== 'success' ? 'data-reverse' : ''} data-color="${color ?? 'default'}" class="card !max-h-16 !min-h-16 !w-full">
-    <span class="font-medium text-lg bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} bg-clip-text text-transparent">Card</span>
+    <span class="font-medium text-lg bg-gradient-to-r bg-clip-text text-transparent">Card</span>
 </div>`}
                                 lang="html"
                             />
@@ -117,7 +117,7 @@ function renderBackround(color = 'default') {
                             class="card mb-4 !max-h-16 !min-h-16 !w-full"
                         >
                             <span
-                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text font-sans text-lg font-medium text-transparent`}
+                                class={`bg-gradient-to-r ${renderBackround(color)} bg-clip-text font-sans text-lg font-medium text-transparent`}
                             >
                                 Card
                             </span>
@@ -143,14 +143,14 @@ function renderBackround(color = 'default') {
                             class="card mb-4 aspect-square !h-[200px] !min-h-[200px] !w-[200px] !min-w-[200px] font-sans text-white"
                         >
                             <h1
-                                class={`bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text pb-4 text-[3.5rem] font-bold leading-[1] text-transparent`}
+                                class={`bg-gradient-to-r ${renderBackround(color)} bg-clip-text pb-4 text-[3.5rem] font-bold leading-[1] text-transparent`}
                             >
                                 6
                             </h1>
                             <h2 class="pb-4 text-center text-2xl font-bold">
                                 years of{' '}
                                 <span
-                                    class={`inline bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} bg-clip-text text-transparent`}
+                                    class={`inline bg-gradient-to-r ${renderBackround(color)} bg-clip-text text-transparent`}
                                 >
                                     experience
                                 </span>
@@ -209,7 +209,7 @@ function renderBackround(color = 'default') {
                             data-color={color ?? 'default'}
                         >
                             <div
-                                class={`pointer-events-none absolute left-[2px] top-[2px] z-[1] h-[152px] w-[calc(100%-4px)] rounded-[22px] bg-gradient-to-${color !== 'ghost' && color !== 'success' ? 'l' : 'r'} ${renderBackround(color)} opacity-25`}
+                                class={`pointer-events-none absolute left-[2px] top-[2px] z-[1] h-[152px] w-[calc(100%-4px)] rounded-[22px] bg-gradient-to-r ${renderBackround(color)} opacity-25`}
                             />
                             <iframe
                                 data-testid="embed-iframe"
