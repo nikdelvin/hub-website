@@ -567,3 +567,11 @@ const colorTheme =
         <ProjectFooter theme={colorTheme} />
     </main>
 </Layout>
+<script define:vars={{ monthNames }}>
+    const month = new Date().getMonth()
+    const day = new Date().getDate()
+    const year = new Date().getFullYear()
+    document.querySelector('#job-0-to-0').textContent = String(day)
+    document.querySelector('#job-0-to-1').textContent = monthNames[month]
+    document.querySelector('#job-0-to-2').textContent = String(year)
+</script>

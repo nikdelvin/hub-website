@@ -257,3 +257,14 @@ const colorTheme = theme ?? 'default'
         ]
     })}
 />
+<script is:inline>
+    const month = new Date().getMonth()
+    const day = new Date().getDate()
+    const year = new Date().getFullYear()
+    document.querySelector('#block-4-0').textContent =
+        `17.05.22 - ${String(day).padStart(2, '0')}.${String(month + 1).padStart(2, '0')}.${String(year).slice(2)}: `
+    document.querySelector('#block-4-25').textContent =
+        `${Math.floor((Date.now() - Date.parse('25 May 2019 00:00:00 GMT')) / (1000 * 60 * 60 * 24) / 365)} `
+    document.querySelector('#block-4-27').textContent =
+        `${Math.floor(((Date.now() - Date.parse('25 May 2019 00:00:00 GMT')) / (1000 * 60 * 60 * 24)) % 365)} `
+</script>
