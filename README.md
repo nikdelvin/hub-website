@@ -1,4 +1,4 @@
-# Hi 👋, I'm Nikita
+# Hi 👋, I'm Nikita Stadnik
 
 🧑‍💻 I'm a passionate and ambitious **Senior Full-Stack Engineer**
 
